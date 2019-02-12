@@ -136,8 +136,7 @@ function interpolateMelodies(){
 
 ///////////////////////////////
 //TONE.js setup for audio play back
-// var samplesPath = './data/piano/';
-var samplesPath = "https://storage.googleapis.com/melody-mixer/piano/"
+var samplesPath = './data/piano/';
 var samples = {};
 var NUM_NOTES = 88;
 var MIDI_START_NOTE = 21;

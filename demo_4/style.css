@@ -52,7 +52,7 @@ canvas {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 52px;
 
-    background-image: url("https://storage.googleapis.com/melody-mixer/images/play-button.svg");
+    background-image: url("../localized/images/play-button.svg");
     background-position: 53% 49%;
     background-size: 22px;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ canvas {
 .play-pause-button.active{
     background-position: 51% 50%;
     background-size: 22px;
-    background-image: url("https://storage.googleapis.com/melody-mixer/images/pause-button.svg");
+    background-image: url("../localized/images/pause-button.svg");
 }
 
 .play-pause-button:hover {
