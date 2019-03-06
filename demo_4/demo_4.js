@@ -41,19 +41,20 @@ var MELODY2 = presetMelodies['Melody 2'];
 
 
 function getGeneratedMelodyColor(selectorIndex){
-    var colorOptions = ([
-        [
-            [51, 137, 0],
-            [46, 196, 91],
-            [41, 255, 181]
-        ],
-        [
-            [48, 17, 234],
-            [24, 78, 211],
-            [8, 139, 188]
-        ]
-    ])[selectorIndex];
-    return colorOptions[floor(random(0, colorOptions.length))];
+    // var colorOptions = ([
+    //     [
+    //         [51, 137, 0],
+    //         [46, 196, 91],
+    //         [41, 255, 181]
+    //     ],
+    //     [
+    //         [48, 17, 234],
+    //         [24, 78, 211],
+    //         [8, 139, 188]
+    //     ]
+    // ])[selectorIndex];
+    // return colorOptions[floor(random(0, colorOptions.length))];
+    return [69,137,244];
 }
 
 
@@ -212,10 +213,10 @@ function draw() {
     translate(0, height/2 - sequences.tileSize/2 - SCRUB_BAR_HEIGHT);
     //Drawing Tiles + notes
     noStroke();
-    background(50);
-    fill(53, 53, 53);
+    background(27,28,42);
+    fill(27,28,42);
     rect(0, 0, width, SCRUB_BAR_HEIGHT);
-    fill(249, 10);
+    fill("rgba(151,151,151,.18)");
     rect(0, SCRUB_BAR_GAP + SCRUB_BAR_HEIGHT, width, sequences.tileSize);
 
     //move our origin (0,0) to the main tile area to simplify coordinates
