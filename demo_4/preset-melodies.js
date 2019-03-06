@@ -44,7 +44,7 @@ var presetMelodies = {
             {pitch: 62, quantizedStartStep: 26, quantizedEndStep: 28},
             {pitch: 60, quantizedStartStep: 28, quantizedEndStep: 32}
         ],
-        color : [113, 20, 221]
+        color : [255, 120, 119]
     },
     'Sparse' : {
         notes:[
@@ -59,7 +59,7 @@ var presetMelodies = {
             {pitch: 62, quantizedStartStep: 19, quantizedEndStep: 20},
             {pitch: 64, quantizedStartStep: 20, quantizedEndStep: 24}
         ],
-        color : [245, 109, 49]
+        color : [233, 120, 54]
     },
      'Arpeggiated' : {
         notes : [
@@ -81,7 +81,7 @@ var presetMelodies = {
             {pitch: 69, quantizedStartStep: 30, quantizedEndStep: 32}
 		],
 
-        color : [221, 219, 20]
+        color : [251, 195, 36]
     },
     // 'Dense' : {
     //     notes:[
@@ -139,7 +139,7 @@ var presetMelodies = {
             {pitch: 62, quantizedStartStep: 28, quantizedEndStep: 30},
             {pitch: 59, quantizedStartStep: 30, quantizedEndStep: 32}
         ],
-        color : [221, 44, 87]
+        color : [61, 184, 153]
     },
     /*
     'Melody 1' : {
