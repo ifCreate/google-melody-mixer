@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Melody Mixer</title>
@@ -12,28 +13,33 @@
     <meta name="twitter:description" content="A fun way to explore melodies using machine learning." />
     <meta name="twitter:image" content="./data/images/melody-mixer-og2.jpeg" />
 
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    
-    <script language="javascript" type="text/javascript" src="../localized/musicvae.js"></script>
-    <script language="javascript" type="text/javascript" src="./libraries/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="./libraries/tone.js"></script>
-    <script language="javascript" type="text/javascript" src="./preset-melodies.js"></script>
-    <script language="javascript" type="text/javascript" src="../localized/StartAudioContext.js"></script>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+    <script type="text/javascript" src="../localized/musicvae.js"></script>
+    <script type="text/javascript" src="./libraries/p5.js"></script>
+    <script type="text/javascript" src="./libraries/tone.js"></script>
+    <script type="text/javascript" src="./preset-melodies.js"></script>
+    <script type="text/javascript" src="../localized/StartAudioContext.js"></script>
     <link href="./data/images/favicon-melody-mixer-small.png" rel="shortcut icon" type="image/x-icon">
     <link href="./data/images/favicon-melody-mixer.png" rel="apple-touch-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/fonts-material-icons.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <section class="splash">
         <div class="splash-wrapper">
-            <img class="splash-icon" src="./data/images/melody-mixer.gif" width="375" height="auto" alt="Melody Mixer icon"/>
+            <img class="splash-icon" src="./data/images/melody-mixer.gif" width="375" height="auto"
+                alt="Melody Mixer icon" />
             <h1>MELODY MIXER</h1>
             <div class="device-supported">
-                <p class="splash-description">A fun way to explore music using machine learning. 
-                    <br/>Just pull the blocks apart to see what melodies you discover.
+                <p class="splash-description">A fun way to explore music using machine learning.
+                    <br />Just pull the blocks apart to see what melodies you discover.
                 </p>
-                <button class="splash-play-button" id="splash-play-button" onclick="onPlay();" disabled>LOADING...</button>
+                <button class="splash-play-button" id="splash-play-button" onclick="onPlay();"
+                    disabled>LOADING...</button>
                 <p class="splash-description">
                 </p>
                 <p class="built-with">
@@ -41,39 +47,94 @@
                 </p>
 
             </div>
-            <p class="device-not-supported" style="display: none">Sorry, looks like your browser or device doesn't support this experiment.
+            <p class="device-not-supported" style="display: none">Sorry, looks like your browser or device doesn't
+                support this experiment.
                 Learn more about Melody Mixer
-                <a href="https://medium.com/@torinblankensmith/how-to-blend-melodies-with-machine-learning-in-real-time-in-the-browser-8ad5b42b4d0b">here</a>.
+                <a
+                    href="https://medium.com/@torinblankensmith/how-to-blend-melodies-with-machine-learning-in-real-time-in-the-browser-8ad5b42b4d0b">here</a>.
                 Or try visiting this site on a desktop computer in a browser like Chrome.</p>
         </div>
         <div class="badge-wrapper">
-            <a class="ai-experiment badge" href="#" ></a>
+            <a class="ai-experiment badge" href="#"></a>
             <div class="badge-break"></div>
             <a class="google-friends badge" href="#"></a>
             <div class="badge-break"></div>
-            <a class="magenta-link badge" href="#" >
+            <a class="magenta-link badge" href="#">
                 <div class="magenta-logo"></div>
                 <div class="magenta-text">Built using <span>Magenta</span>
                 </div>
             </a>
         </div>
     </section>
+<!--    <img src="./data/images/melody-mixer.gif" width="375" height="auto"-->
+<!--         alt="Melody Mixer icon" />-->
+    <div class="dark_window"></div>
+    <div class="light_window">
+        <h1 id="window_title">MELODY</h1>
+        <button id="close_page"><i class="material-icons" style="font-size: 36px">close</i></button>
+        <div class="show-center">
+            <div class="letter-wrap">
+                <div id="p_0" class="letter-name">A<sub>2</sub></div>
+                <div id="p_1" class="letter-name">C<sub>1</sub></div>
+                <div id="p_2" class="letter-name">C</div>
+                <div id="p_3" class="letter-name">c</div>
+                <div id="p_4" class="letter-name letter-active">c<sup>1</sup></div>
+                <div id="p_5" class="letter-name">c<sup>2</sup></div>
+                <div id="p_6" class="letter-name">c<sup>3</sup></div>
+                <div id="p_7" class="letter-name">c<sup>4</sup></div>
+                <div id="p_8" class="letter-name">c<sup>5</sup></div>
+            </div>
+            <div id="melody-show"></div>
+            <div id="note-wrap"></div>
+            <div class="button-wrap">
+                <button id="restore_btn" class="btn_control">Restore</button>
+                <button id="play_btn" class="btn_icon"><i class="material-icons" style="font-size: 48px">audiotrack</i></button>
+                <button id="apply_btn" class="btn_control btn_active">Apply</button>
+            </div>
+            <h2>CodeBlock</h2>
+            <div id="code"></div>
+            <div class="btn_group">
+                <button id="run_code" class="btn_control_code btn_active">Apply code</button>
+                <button id="save_code" class="btn_control_code">Save code to file</button>
+                <button id="load_code" class="btn_control_code">Load code from file</button>
+            </div>
+<!--            <div class="code-blocks">CODEBLOCKS</div>-->
+        </div>
+    </div>
 
     <div class="control-container">
         <div class="drop-down-container">
-          <select name="melody-one" class="drop-down">
-              <option>Melody 1</option>
-          </select>
-          <label for="melody-one">Melody 1</label>
+            <select name="melody-one" class="drop-down">
+                <option>Melody 1</option>
+            </select>
+            <label for="melody-one">Melody 1</label>
         </div>
         <button class="play-pause-button"></button>
         <div class="drop-down-container">
-          <select name="melody-two" class="drop-down">
-              <option>Melody 2</option>
-          </select>
-          <label for="melody-two">Melody 2</label>
+            <select name="melody-two" class="drop-down">
+                <option>Melody 2</option>
+            </select>
+            <label for="melody-two">Melody 2</label>
         </div>
     </div>
-    <script language="javascript" type="text/javascript" src="demo_4.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="data/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <!-- Logic -->
+    <script type="text/javascript" src="demo_4.js"></script>
+    <script id="trick" type='text/javascript'>
+    </script>
+    <style>
+        .ace-solarized-dark {
+            background: #292c39;
+            color: #d9e0e4;
+        }
+
+        .ace-solarized-dark .ace_gutter {
+            background: #333546;
+            color: #d0edf7;
+        }
+    </style>
 </body>
+
 </html>
